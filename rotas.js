@@ -1,10 +1,15 @@
 const express = require('express');
-const app = express();
+const rota = express();
+const produtos = require('./controladores/produtos');
+const verificaCarrinho = require('./controladores/carrinho');
+const fs = require('fs/promises');
 
-app.get('/produtos',);
-app.get('/carrinho',);
-app.post('/carrinho/produtos',);
-app.post('/finalizar-compra',);
-app.patch('/carrinho/produtos/:idProduto',);
-app.delete('/carrinho/produtos/:idProduto',);
-app.delete('/carrinho/',);
+rota.get('/produtos', produtos);
+rota.get('/carrinho', verificaCarrinho);
+rota.post('/carrinho/produtos',);
+rota.post('/finalizar-compra',);
+rota.patch('/carrinho/produtos/:idProduto',);
+rota.delete('/carrinho/produtos/:idProduto',);
+rota.delete('/carrinho/',);
+
+module.exports = rota;
